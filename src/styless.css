@@ -190,19 +190,32 @@ a {
 }
 
 /* Pseudo-selector :hover sobre .hero-card */
-.hero-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0,0,0,.15);
+.hero-card {
+  border-radius: var(--radio);
+  overflow: hidden;
+  background-color: var(--color-blanco);
+  box-shadow: var(--sombra);
+  position: relative;
+  transition: transform var(--transicion), box-shadow var(--transicion);
 }
 
 .hero-card__img {
   width: 100%;
   height: 180px;
   object-fit: cover;
+  /* La imagen ahora ocupa toda la card */
+  display: block;
 }
 
 .hero-card__body {
+  /* Posicionado encima de la imagen */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   padding: 16px;
+  /* Gradiente oscuro para que el texto se lea bien */
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
 }
 
 .hero-card__title {
@@ -211,13 +224,16 @@ a {
   font-weight: 700;
   line-height: 1.3;
   margin-bottom: 6px;
-  color: var(--color-primario);
+  /* Texto blanco para contrastar con la imagen */
+  color: var(--color-blanco);
 }
 
 .hero-card__meta {
   font-size: 0.78rem;
-  color: var(--color-gris-texto);
+  /* También blanco */
+  color: rgba(255,255,255,0.8);
 }
+
 
 /* ─── CONTENT AREA (columna posts + sidebar) ─────────────────── */
 .content-area {
